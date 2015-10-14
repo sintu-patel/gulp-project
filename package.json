@@ -1,0 +1,10 @@
+{
+  "name": "WWW",
+  "version": "1.0.0",
+  "description": "This is testing gulp project",
+  "author": "Sintu",
+  "license": "",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
