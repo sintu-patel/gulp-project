@@ -1,0 +1,11 @@
+// Mixin to zoom image
+@mixin zoom-image($zoom-value) {
+	img {
+		transition: all .3s ease-in-out;
+		position: relative;
+
+		&:hover {
+			transform: scale($zoom-value);
+		}
+	}
+}
