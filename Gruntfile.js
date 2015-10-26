@@ -1,25 +1,17 @@
 module.exports = function(grunt) {
+  grunt.loadNpmTasks("assemble");
   grunt.initConfig({
     assemble: {
       options: {
         partials: ['dev/partials/*.hbs'],
-        layout: ['dev/pages/index1.hbs'],
-        data: ['./app/data/*.json']
-        //helpers: ['./build-pipeline/_helpers/helper-*.js']
+        layout: ['dev/pages/index.hbs'],
+        data: ['data/*.json']
       },
       site: {
-        files: [
-          {
-            expand: true,
-            cwd: "dev",
-            src: "dev/partials/*.hbs",
-            dest: "dev",
-            ext: ".html"
-          }
-        ]
+        src: ['dev/pages/*.hbs'],
+        dest: 'build/'
       }
     }
   });
-  grunt.loadNpmTasks("assemble");
   return grunt.registerTask('grunt-assemble', ['assemble']);
 };

@@ -39,6 +39,11 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('dev/assets/css'));
 });
 
+gulp.task('copyHtmlFolder', function() {
+   gulp.src('build/dev/pages/*.html')
+   .pipe(gulp.dest('dev'));
+});
+
 // Scsslint
 gulp.task('scss-lint', function() {
   return gulp.src('dev/sass/*.scss')
@@ -53,16 +58,16 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('html', function() {
+gulp.task('live', function() {
   gulp.src('dev/*.html')
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['dev/*.html'], ['html'], ['compass'], ['javascript']);
+  gulp.watch(['dev/*.html'], ['live'], ['compass'], ['javascript']);
 });
 
-gulp.task('startServer', ['connect', 'watch']);
+gulp.task('startServer', ['connect', 'watch', 'grunt-assemble', 'copyHtmlFolder']);
 
 
 
