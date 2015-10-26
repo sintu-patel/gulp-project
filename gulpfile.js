@@ -9,12 +9,21 @@ var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var livereload = require('gulp-livereload');
 
+var gulpAssemble = require('gulp-assemble');
+var push = require('assemble-push');
+var extname = require('gulp-extname');
+var prettify = require('gulp-prettify');
+
+require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
+
 // Scripts
 gulp.task('javascript', function() {
   return gulp.src('dev/javascript/*.js')
     .pipe(concat('javascript.js'))
     .pipe(gulp.dest('dev/assets/js'))
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({
+      suffix: '.min'
+    }))
     .pipe(uglify())
     .pipe(gulp.dest('dev/assets/js'));
 });
@@ -44,13 +53,16 @@ gulp.task('connect', function() {
   });
 });
 
-gulp.task('html', function () {
+gulp.task('html', function() {
   gulp.src('dev/*.html')
     .pipe(connect.reload());
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
   gulp.watch(['dev/*.html'], ['html'], ['compass'], ['javascript']);
 });
 
-gulp.task('default', ['connect', 'watch']);
+gulp.task('startServer', ['connect', 'watch']);
+
+
+
