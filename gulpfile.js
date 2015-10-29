@@ -9,6 +9,8 @@ var rename = require('gulp-rename');
 var connect = require('gulp-connect');
 var livereload = require('gulp-livereload');
 
+var scsslint = require('gulp-scss-lint');
+
 var gulpAssemble = require('gulp-assemble');
 var push = require('assemble-push');
 var extname = require('gulp-extname');
@@ -46,8 +48,10 @@ gulp.task('copyHtmlFolder', function() {
 
 // Scsslint
 gulp.task('scss-lint', function() {
-  return gulp.src('dev/sass/*.scss')
-    .pipe(scsslint());
+  return gulp.src('dev/**/*.scss')
+    .pipe(scsslint({
+    	'config': 'scss-lint.yml',
+    }));
 });
 
 gulp.task('connect', function() {
