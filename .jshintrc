@@ -1,0 +1,81 @@
+{
+	"curly": true,
+	"eqeqeq": true,
+	"es3": true,
+	"immed": true,
+	"indent": 3,
+	"latedef": true,
+	"newcap": true,
+	"noarg": true,
+	"sub": true,
+	"undef": true,
+	"unused": false,
+	"boss": true,
+	"eqnull": true,
+	"globals": {
+		//Vendor
+		"jQuery": true,
+		"IScroll": true,
+		"angular": true,
+		"define": true,
+
+		//TUI Helpers
+		"ResponsiveBootstrapToolkit": true,
+		"isIE": true,
+		"scrollBarWidth": true,
+
+		//browser
+		"document": true,
+		"location": true,
+		"navigator": true,
+		"top": true,
+		"window": true,
+		"setTimeout": true,
+		"clearTimeout": true,
+		"setInterval": true,
+		"clearInterval": true,
+		"JSON": true,
+		"console": true,//PLEASE DONT DO THIS!!!!! FIXME: REFACTOR
+
+		//testing (general)
+		"describe": true,
+		"it": true,
+		"xit": true,
+		"expect": true,
+		"jasmine": true,
+		"getJSONFixture": true,
+		"beforeEach": true,
+		"afterEach": true,
+		"inject": true,
+		"spyOn": true,
+
+		//Grunt
+		"require": true,
+		"module": true,
+
+		//TUI Custom
+		"ImageHandler": true,
+		"tui": true,
+		"tuiConfig": true,
+		"bookflowCartJSON": true,
+		"ancillariesJson": true,
+		"accomodationJSON": true,
+		"validationsJSON": true,
+		"updateErrorInScope": true,
+		"ajaxUrlConfig": true,
+
+
+		//Js files from nordicweb
+		"Tui": true,
+		"customerTipsConfig": true,
+		"cardImageFallback": true,
+		"Respimg": true,
+		"history": true,
+		"tabMenuCollapseText": true,
+		"google": true,
+		"pois": true,
+		"emapsConfig": true,
+		"InfoBubble": true,
+		"contextPath": true
+	}
+}

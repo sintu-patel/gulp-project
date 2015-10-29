@@ -10,6 +10,9 @@ var connect = require('gulp-connect');
 var livereload = require('gulp-livereload');
 
 var scsslint = require('gulp-scss-lint');
+var jshint = require('gulp-jshint');
+var jscs = require('gulp-jscs');
+var w3cjs = require('gulp-w3cjs');
 
 var gulpAssemble = require('gulp-assemble');
 var push = require('assemble-push');
@@ -42,16 +45,37 @@ gulp.task('compass', function() {
 });
 
 gulp.task('copyHtmlFolder', function() {
-   gulp.src('build/dev/pages/*.html')
-   .pipe(gulp.dest('dev'));
+  gulp.src('build/dev/pages/*.html')
+    .pipe(gulp.dest('dev'));
 });
 
 // Scsslint
-gulp.task('scss-lint', function() {
+gulp.task('scssLint', function() {
   return gulp.src('dev/**/*.scss')
     .pipe(scsslint({
-    	'config': 'scss-lint.yml',
+      'config': 'scss-lint.yml'
     }));
+});
+
+// jshint
+gulp.task('jsHint', function() {
+  return gulp.src('dev/**/*.js')
+    .pipe(jshint({
+      'config': '.jshintrc'
+    }));
+});
+
+// jshint
+gulp.task('jsCs', function() {
+  return gulp.src('dev/**/*.js')
+    .pipe(jscs({
+      'config': '.jscsrc'
+    }));
+});
+
+gulp.task('w3cjs', function() {
+  gulp.src('dev/*.html')
+    .pipe(w3cjs());
 });
 
 gulp.task('connect', function() {
@@ -72,6 +96,3 @@ gulp.task('watch', function() {
 });
 
 gulp.task('startServer', ['connect', 'watch', 'grunt-assemble', 'copyHtmlFolder']);
-
-
-
